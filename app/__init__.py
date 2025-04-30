@@ -16,4 +16,7 @@ def create_app():
     from .routes import main
     app.register_blueprint(main)
     
+    from jobboard.routes.auth import auth
+    app.register_blueprint(auth)
+    
     return app
