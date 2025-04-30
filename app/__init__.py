@@ -22,7 +22,8 @@ def create_app():
     migrate.init_app(app, db)
 
     # Import and register blueprints
-    from jobboard.routes.auth import auth
+    from app.routes.auth import auth
+
     app.register_blueprint(auth)
 
     return app
