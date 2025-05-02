@@ -19,3 +19,12 @@ def Register():
         email = request.form['email']
         password = request.form['password']
         is_employer = 'is_employer' in request.form
+        
+        hashed_password = generate_password_hash(password, method='sha256')
+        new_user = User(username=username, email=email, password=hashed_password, is_employer=is_employer)
+        db.session.add(new_user)
+        db.session.commit()
+        flash('Account created successfully! Please log in.')
+        return redirect(url_for('auth.login'))
+
+    return render_template('register.html')
