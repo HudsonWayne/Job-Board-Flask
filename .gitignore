@@ -1,0 +1,49 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+
+# Flask instance and environment files
+instance/
+.env
+*.env
+
+# Flask cache files
+*.log
+
+# Pytest
+.pytest_cache/
+
+# VS Code settings
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# SQLite database
+*.sqlite3
+*.db
+
+# Migrations
+migrations/
+
+# PDF, CSV, and other outputs
+*.pdf
+*.csv
+
+# Compiled files
+*.so
+*.pyd
+*.pyo
+
+# Egg files
+*.egg
+*.egg-info/
+dist/
+build/
