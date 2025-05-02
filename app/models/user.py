@@ -12,3 +12,8 @@ class User(db.Model):
 
 class JobPost(db.Model):
     id = db.Column(db.Integer,primary_key = True)
+    title = db.Column(db.String(200), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    employer_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    applications = db.relationship('Application', backref='job', lazy=True)
