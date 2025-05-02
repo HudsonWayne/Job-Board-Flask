@@ -28,3 +28,24 @@ def Register():
         return redirect(url_for('auth.login'))
 
     return render_template('register.html')
+
+@auth.route('/login', methods=['GET', 'POST'])
+
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        user = User.query.filter_by(email=email).first()
+
+        if user and check_password_hash(user.password, password):
+            login_user(user)
+            return redirect(url_for('job.list_jobs'))
+        else:
+            flash('Login failed. Check email and password.')
+    return render_template('login.html')
+
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('auth.home'))
