@@ -17,3 +17,9 @@ class JobPost(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     employer_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     applications = db.relationship('Application', backref='job', lazy=True)
+    
+    
+class Application(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    applicant_name = db.Column(db.String(150), nullable=False)
+    applicant_email = db.Column(db.String(150), nullable=False)
