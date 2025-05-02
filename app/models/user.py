@@ -8,3 +8,7 @@ class User(db.Model):
     password = db.Column(db.String(200), nullable=False)
     is_employer = db.Column(db.Boolean, default=False)
     jobs = db.relationship('JobPost', backref='employer', lazy=True)
+
+
+class JobPost(db.Model):
+    id = db.Column(db.Integer,primary_key = True)
