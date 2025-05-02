@@ -10,3 +10,5 @@ auth = Blueprint('auth',__name__)
 @auth.route('/')
 def home():
     return render_template('home.html')
+
+@auth.route('/register', methods=['GET', 'POST'])
