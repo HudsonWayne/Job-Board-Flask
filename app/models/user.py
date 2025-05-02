@@ -1,4 +1,5 @@
 from .. import db  # Relative import to avoid circular import
+from datetime import datetime
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
