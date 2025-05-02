@@ -12,3 +12,10 @@ def home():
     return render_template('home.html')
 
 @auth.route('/register', methods=['GET', 'POST'])
+
+def Register():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        is_employer = 'is_employer' in request.form
