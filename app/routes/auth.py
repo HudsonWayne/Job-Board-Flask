@@ -4,16 +4,14 @@ from flask_login import login_user, logout_user, login_required
 from app import db
 from app.models import User
 
-
-auth = Blueprint('auth',__name__)
+auth = Blueprint('auth', __name__)
 
 @auth.route('/')
 def home():
     return render_template('home.html')
 
 @auth.route('/register', methods=['GET', 'POST'])
-
-def Register():
+def register():
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
@@ -30,7 +28,6 @@ def Register():
     return render_template('register.html')
 
 @auth.route('/login', methods=['GET', 'POST'])
-
 def login():
     if request.method == 'POST':
         email = request.form['email']
@@ -39,7 +36,7 @@ def login():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            return redirect(url_for('job.list_jobs'))
+            return redirect(url_for('job.list_jobs'))  # will be defined in jobs.py
         else:
             flash('Login failed. Check email and password.')
     return render_template('login.html')
