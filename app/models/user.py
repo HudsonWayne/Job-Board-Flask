@@ -23,3 +23,5 @@ class Application(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     applicant_name = db.Column(db.String(150), nullable=False)
     applicant_email = db.Column(db.String(150), nullable=False)
+    resume = db.Column(db.Text)  
+    job_id = db.Column(db.Integer, db.ForeignKey('job_post.id'), nullable=False)
