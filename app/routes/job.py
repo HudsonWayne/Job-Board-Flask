@@ -15,6 +15,14 @@ def list_jobs():
 
 
 
+
+
+
+@job.route('/jobs/<int:job_id>')
+def job_detail(job_id):
+    job = Job.query.get_or_404(job_id)
+    return render_template('job_detail.html', job=job)
+
 @job.route('/jobs/post', methods=['GET', 'POST'])
 @login_required
 def post_job():
