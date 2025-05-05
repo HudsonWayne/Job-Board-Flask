@@ -11,3 +11,10 @@
             {{ job.title }}
         </a>
     </h2>
+    <h3>{{ job.company }}</h3>
+        <p>{{ job.location }}</p>
+        <small>Posted: {{ job.date_posted.strftime('%Y-%m-%d') }}</small>
+    </div>
+{% endfor %}
+
+{% endblock %}
