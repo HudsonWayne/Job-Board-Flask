@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post a Job</title>
+</head>
+<body>
+    <h1>Post a New Job</h1>
+    
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <p>
+            {{ form.title.label }}<br>
+            {{ form.title(size=40) }}<br>
+            {% for error in form.title.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.company.label }}<br>
+            {{ form.company(size=40) }}<br>
+            {% for error in form.company.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.location.label }}<br>
+            {{ form.location(size=40) }}<br>
+            {% for error in form.location.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(rows=5, cols=50) }}<br>
+            {% for error in form.description.errors %}
+                <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </p>
+
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    <a href="{{ url_for('job.list_jobs') }}">Back to Jobs</a>
+</body>
+</html>
