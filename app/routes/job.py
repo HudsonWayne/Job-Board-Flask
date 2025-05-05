@@ -21,3 +21,14 @@ def post_job():
     if not current_user.is_employer:
         flash('Only employers can post jobs.')
         return redirect(url_for('job.list_jobs'))
+
+    form = JobForm()
+    if form.validate_on_submit():
+        new_job = Job(
+            title=form.title.data,
+            company=form.company.data,
+            location=form.location.data,
+            description=form.description.data
+        )
+        
+     
