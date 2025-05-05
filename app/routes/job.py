@@ -30,5 +30,10 @@ def post_job():
             location=form.location.data,
             description=form.description.data
         )
-        
+        db.session.add(new_job)
+        db.session.commit()
+        flash('Job posted successfully!', 'success')
+        return redirect(url_for('job.list_jobs'))
+
+    return render_template('post_job.html', form=form)
      
