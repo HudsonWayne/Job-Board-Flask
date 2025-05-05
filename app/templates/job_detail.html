@@ -4,3 +4,9 @@
 <h1>{{ job.title }}</h1>
 <h3>{{ job.company }}</h3>
 <p><strong>Location:</strong> {{ job.location }}</p>
+<p><strong>Description:</strong></p>
+<p>{{ job.description }}</p>
+<p><small>Posted on: {{ job.date_posted.strftime('%Y-%m-%d') }}</small></p>
+
+<a href="{{ url_for('job.list_jobs') }}">← Back to Jobs</a>
+{% endblock %}
