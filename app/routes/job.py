@@ -13,7 +13,10 @@ def list_jobs():
     jobs = Job.query.all()
     return render_template('jobs.html', jobs=jobs)
 
-
+@job.route('/jobs/<int:job_id>')
+def job_detail(job_id):
+    job = Job.query.get_or_404(job_id)
+    return render_template('job_detail.html', job=job)
 
 
 
@@ -22,6 +25,24 @@ def list_jobs():
 def job_detail(job_id):
     job = Job.query.get_or_404(job_id)
     return render_template('job_detail.html', job=job)
+
+
+
+
+@job.route('/employer/dashboard')
+@login_required
+def employer_dashboard():
+    if not current_user.is_employer:
+        flash('Only employers can access the dashboard.')
+        return redirect(url_for('job.list_jobs'))
+
+    jobs = Job.query.filter_by(employer_id=current_user.id).all()
+    return render_template('employer_dashboard.html', jobs=jobs)
+
+
+
+
+
 
 @job.route('/jobs/post', methods=['GET', 'POST'])
 @login_required
