@@ -51,6 +51,10 @@ def delete_job(job_id):
         return redirect(url_for('job.list_jobs'))
     
     
+    db.session.delete(job_obj)
+    db.session.commit()
+    flash('Job deleted.', 'info')
+    
     
     
     
