@@ -40,6 +40,10 @@ def employer_dashboard():
     return render_template('employer_dashboard.html', jobs=jobs)
 
 
+@job.route('/jobs/<int:job_id>/delete', methods=['POST'])
+@login_required
+
+
 
 
 @job.route('/jobs/<int:job_id>/edit', methods=['GET', 'POST'])
