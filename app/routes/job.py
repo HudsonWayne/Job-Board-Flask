@@ -42,6 +42,14 @@ def employer_dashboard():
 
 
 
+@job.route('/jobs/<int:job_id>/edit', methods=['GET', 'POST'])
+@login_required
+
+def edit_job(job_id):
+    job_obj = Job.query.get_or_404(job_id)
+
+
+
 
 
 @job.route('/jobs/post', methods=['GET', 'POST'])
