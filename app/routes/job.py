@@ -43,6 +43,7 @@ def employer_dashboard():
 @job.route('/jobs/<int:job_id>/delete', methods=['POST'])
 @login_required
 
+def delete_job(job_id):
 
 
 
