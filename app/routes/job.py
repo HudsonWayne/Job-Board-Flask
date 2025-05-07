@@ -53,7 +53,14 @@ def edit_job(job_id):
         return redirect(url_for('job.list_jobs'))
     
     form = JobForm(obj=job_obj)
-
+    if form.validate_on_submit():
+        job_obj.title = form.title.data
+        job_obj.company = form.company.data
+        job_obj.location = form.location.data
+        job_obj.description = form.description.data
+        db.session.commit()
+        flash('Job updated successfully!', 'success')
+        return redirect(url_for('job.job_detail', job_id=job_id))
 
 
 
