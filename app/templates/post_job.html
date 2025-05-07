@@ -8,7 +8,115 @@
     
     <form method="POST">
         {{ form.hidden_tag() }}
-        <button type="submit">{{ 'Update Job' if edit else 'Post Job' }}</button>
+        <button type="submit">{{ 'Update Job' if edit else 'Post Job' }}</button><form method="POST">
+    {{ form.hidden_tag() }}
+    <button type="submit">{{ 'Update Job' if edit else 'Post Job' }}</button>
+    <div class="form-group">
+        {{ form.title.label }}<br>
+        {{ form.title(size=40, class_='form-control') }}<br>
+        {% for error in form.title.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        {{ form.company.label }}<br>
+        {{ form.company(size=40, class_='form-control') }}<br>
+        {% for error in form.company.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        {{ form.location.label }}<br>
+        {{ form.location(size=40, class_='form-control') }}<br>
+        {% for error in form.location.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        {{ form.description.label }}<br>
+        {{ form.description(rows=5, cols=50, class_='form-control') }}<br>
+        {% for error in form.description.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <p>{{ form.submit(class_='btn btn-primary') }}</p>
+</form><form method="POST">
+    {{ form.hidden_tag() }}
+    <button type="submit">{{ 'Update Job' if edit else 'Post Job' }}</button>
+    <div class="form-group">
+        {{ form.title.label }}<br>
+        {{ form.title(size=40, class_='form-control') }}<br>
+        {% for error in form.title.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        {{ form.company.label }}<br>
+        {{ form.company(size=40, class_='form-control') }}<br>
+        {% for error in form.company.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        {{ form.location.label }}<br>
+        {{ form.location(size=40, class_='form-control') }}<br>
+        {% for error in form.location.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        {{ form.description.label }}<br>
+        {{ form.description(rows=5, cols=50, class_='form-control') }}<br>
+        {% for error in form.description.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <p>{{ form.submit(class_='btn btn-primary') }}</p>
+</form><form method="POST">
+    {{ form.hidden_tag() }}
+    <button type="submit">{{ 'Update Job' if edit else 'Post Job' }}</button>
+    <div class="form-group">
+        {{ form.title.label }}<br>
+        {{ form.title(size=40, class_='form-control') }}<br>
+        {% for error in form.title.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        {{ form.company.label }}<br>
+        {{ form.company(size=40, class_='form-control') }}<br>
+        {% for error in form.company.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        {{ form.location.label }}<br>
+        {{ form.location(size=40, class_='form-control') }}<br>
+        {% for error in form.location.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <div class="form-group">
+        {{ form.description.label }}<br>
+        {{ form.description(rows=5, cols=50, class_='form-control') }}<br>
+        {% for error in form.description.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+    </div>
+
+    <p>{{ form.submit(class_='btn btn-primary') }}</p>
+</form>
         <p>
             {{ form.title.label }}<br>
             {{ form.title(size=40) }}<br>
