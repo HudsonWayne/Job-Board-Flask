@@ -47,6 +47,10 @@ def employer_dashboard():
 
 def edit_job(job_id):
     job_obj = Job.query.get_or_404(job_id)
+    
+    if job_obj.employer_id != current_user.id:
+        flash('You do not have permission to edit this job.', 'danger')
+        return redirect(url_for('job.list_jobs'))
 
 
 
