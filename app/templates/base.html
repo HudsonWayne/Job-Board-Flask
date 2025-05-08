@@ -10,15 +10,22 @@
         <h1><a href="{{ url_for('job.list_jobs') }}">Job Board</a></h1>
         <nav>
             <a href="{{ url_for('job.list_jobs') }}">Jobs</a>
+
             {% if current_user.is_authenticated %}
                 {% if current_user.is_employer %}
                     <a href="{{ url_for('job.post_job') }}">Post Job</a>
                     <a href="{{ url_for('job.employer_dashboard') }}">Dashboard</a>
                 {% endif %}
-                <a href="{{ url_for('auth.logout') }}">Logout</a>
+                {% if 'auth.logout' in current_app.view_functions %}
+                    <a href="{{ url_for('auth.logout') }}">Logout</a>
+                {% endif %}
             {% else %}
-                <a href="{{ url_for('auth.login') }}">Login</a>
-                <a href="{{ url_for('auth.register') }}">Register</a>
+                {% if 'auth.login' in current_app.view_functions %}
+                    <a href="{{ url_for('auth.login') }}">Login</a>
+                {% endif %}
+                {% if 'auth.register' in current_app.view_functions %}
+                    <a href="{{ url_for('auth.register') }}">Register</a>
+                {% endif %}
             {% endif %}
         </nav>
         <hr>
@@ -46,4 +53,3 @@
     </footer>
 </body>
 </html>
-
