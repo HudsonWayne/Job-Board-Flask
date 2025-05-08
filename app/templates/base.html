@@ -7,3 +7,31 @@
 </head>
 <body>
     <header>
+        <h1><a href="{{ url_for('job.list_jobs') }}">Job Board</a></h1>
+        <nav>
+            <a href="{{ url_for('job.list_jobs') }}">Jobs</a>
+            {% if current_user.is_authenticated %}
+                {% if current_user.is_employer %}
+                    <a href="{{ url_for('job.post_job') }}">Post Job</a>
+                    <a href="{{ url_for('job.employer_dashboard') }}">Dashboard</a>
+                {% endif %}
+                <a href="{{ url_for('auth.logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('auth.login') }}">Login</a>
+                <a href="{{ url_for('auth.register') }}">Register</a>
+            {% endif %}
+        </nav>
+        <hr>
+    </header>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+          <li style="color: {% if category == 'success' %}green{% elif category == 'danger' %}red{% else %}black{% endif %};">
+            {{ message }}
+          </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
